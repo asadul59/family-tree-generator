@@ -1,0 +1,109 @@
+# =============================================================================
+# Backend - NestJS / TypeScript / TypeORM / Jest
+#
+# Derived from the actual backend stack:
+#   NestJS 11  - build output in dist/ (see nest-cli.json, tsconfig.build.json)
+#   TypeORM + PostgreSQL - database lives in a PostgreSQL server
+#   Jest 30   - coverage output, plus an ESM config for the e2e suite
+#
+# This file is intentionally self-sufficient: the backend directory is
+# currently its own Git repository, so it must stay safe on its own as well as
+# as part of the parent project.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Dependencies
+# -----------------------------------------------------------------------------
+node_modules/
+jspm_packages/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+.pnp.*
+.pnp.js
+
+# -----------------------------------------------------------------------------
+# Build output
+# -----------------------------------------------------------------------------
+# NestJS compiles TypeScript to dist/ via `nest build`.
+dist/
+build/
+*.tsbuildinfo
+.tsbuildinfo
+.nestjs/
+*.js.map
+
+# -----------------------------------------------------------------------------
+# Test output
+# -----------------------------------------------------------------------------
+coverage/
+coverage-*/
+.nyc_output/
+.jest-cache/
+test-results/
+playwright-report/
+test-report/
+
+# -----------------------------------------------------------------------------
+# Environment variables and secrets
+#
+# The templates stay committable on purpose:
+#   .env.example         -> database settings template
+#   .env.test.example    -> test database name for the e2e suite
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.test.example
+!.env.*.example
+
+# Credentials, keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+secrets.json
+secrets.yaml
+secrets.yml
+credentials.json
+
+# -----------------------------------------------------------------------------
+# Local database artifacts
+#
+# This project talks to a PostgreSQL *server* through TypeORM, so there is no
+# file-based database to ignore. The patterns below only cover dumps/exported
+# data that a developer might drop in the folder by hand, so real family data
+# is never committed by accident.
+# -----------------------------------------------------------------------------
+*.dump
+*.backup
+*.sql.gz
+*.tar.gz
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------------------------------------------------------
+# Operating system and editor files
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.iml
+.vs/
+*.swp
+*.swo
+*~
+.eslintcache

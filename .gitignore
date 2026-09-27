@@ -1,0 +1,102 @@
+# =============================================================================
+# Family Tree Generator - project-wide ignore rules
+#
+# Scope: this file covers the repository root and the files that are common to
+# every part of the project. Framework-specific rules are kept next to the code
+# they belong to, so they are not repeated here:
+#
+#   backend/.gitignore   -> NestJS, TypeScript, TypeORM, Jest, PostgreSQL
+#   frontend/.gitignore  -> Next.js (already present; left untouched)
+#
+# In particular, `node_modules/`, `.next/`, `out/`, `.vercel/` and
+# `next-env.d.ts` are intentionally NOT repeated here: the two
+# sub-project ignore files already cover them, and Git applies every
+# .gitignore it finds in the tree, so those rules stay in effect.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Operating system files
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# -----------------------------------------------------------------------------
+# Editor / IDE state
+# -----------------------------------------------------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+.vs/
+*.swp
+*.swo
+*~
+.\#*
+\#*\#
+
+# -----------------------------------------------------------------------------
+# Logs and debug output
+# -----------------------------------------------------------------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# -----------------------------------------------------------------------------
+# Environment variables and secrets
+#
+# `.env*` covers `.env`, `.env.local`, `.env.production`, etc. The negation
+# patterns keep the documented templates committable so other developers can
+# configure the project:
+#   backend/.env.example
+#   backend/.env.test.example
+#   frontend/.env.example
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Credentials, keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+secrets.json
+secrets.yaml
+secrets.yml
+credentials.json
+service-account*.json
+
+# -----------------------------------------------------------------------------
+# Misc generated / temporary files
+# -----------------------------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.pid
+*.pid.lock
+npm-debug.log
+yarn-error.log
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
